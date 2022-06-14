@@ -2,6 +2,7 @@ const fs = require('fs').promises;
 const store = require('./store');
 require('dotenv').config();
 
+// Function to read the files from directory which is set in .env file
 async function readDirectory() {
   try {
     const folderName = process.env.FOLDER_NAME;
@@ -12,6 +13,7 @@ async function readDirectory() {
   }
 }
 
+// Function to save the files from directory into a redux state
 async function createFileList() {
   const files = await readDirectory();
   if (files) {
@@ -28,6 +30,7 @@ async function createFileList() {
   }
 }
 
+// Function to update the redux state after scanning the files again
 async function updateFileList(req, res, next) {
   const files = await readDirectory();
   if (files) {
