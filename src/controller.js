@@ -1,6 +1,6 @@
 const store = require('./store');
 
-async function getPageList(req, res) {
+async function getFileList(req, res) {
   try {
     const currentState = store.getState();
     res.json(currentState);
@@ -9,4 +9,4 @@ async function getPageList(req, res) {
   }
 }
 
-module.exports = getPageList;
+module.exports = getFileList;

@@ -11,6 +11,8 @@
         "ecmaVersion": "latest"
     },
     "rules": {
-        "linebreak-style": 0
+        "linebreak-style": 0,
+        "no-confusing-arrow": 0,
+        "default-param-last": 0
     }
 }

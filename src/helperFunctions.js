@@ -28,4 +28,19 @@ async function createFileList() {
   }
 }
 
-module.exports = { createFileList };
+async function updateFileList(req, res, next) {
+  const files = await readDirectory();
+  if (files) {
+    await store.dispatch({
+      type: 'UPDATE',
+      payload: {
+        files,
+      },
+    });
+    next();
+  } else {
+    res.json({ error: 'something went wrong' });
+  }
+}
+
+module.exports = { createFileList, updateFileList };
