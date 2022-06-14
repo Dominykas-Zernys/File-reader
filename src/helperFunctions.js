@@ -5,7 +5,7 @@ require('dotenv').config();
 // Function to read the files from directory which is set in .env file
 async function readDirectory() {
   try {
-    const folderName = process.env.FOLDER_NAME;
+    const folderName = process.env.FOLDER_PATH;
     const files = await fs.readdir(folderName);
     return files;
   } catch (error) {

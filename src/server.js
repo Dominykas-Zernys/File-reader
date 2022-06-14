@@ -19,4 +19,4 @@ app.get('/scan', updateFileList, getFileList);
 app.get('/download-state', downloadState);
 
 // Server launch and reading directory files
-app.listen(PORT, console.log(`server is running on port ${PORT}`), createFileList);
+app.listen(PORT, createFileList);
