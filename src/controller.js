@@ -1,3 +1,4 @@
+const fs = require('fs');
 const store = require('./store');
 
 async function getFileList(req, res) {
@@ -9,4 +10,14 @@ async function getFileList(req, res) {
   }
 }
 
-module.exports = getFileList;
+async function downloadState(req, res) {
+  const currentState = store.getState();
+  await fs.writeFile('state.json', JSON.stringify(currentState), (err) => {
+    if (err) res.json({ err: "couldn't download file" });
+    else {
+      res.download('state.json');
+    }
+  });
+}
+
+module.exports = { getFileList, downloadState };
